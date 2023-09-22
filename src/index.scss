@@ -1,0 +1,27 @@
+/* General Styles */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: white;
+  color: #000;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 1.5rem;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+  margin-bottom: 1em;
+}
