@@ -9,8 +9,9 @@ import {
 } from './store/slices/counterSlice.js'
 
 import { getPokemons } from './store/slices/pokemon/thunks.js'
-import { useGetPostsQuery } from './API/todosAPI'
-import { useGetPostQuery } from './API/todosAPI'
+import { useGetPostsQuery, useGetPostQuery } from './API/todosAPI'
+import { useGetClientsQuery, useGetClientQuery } from './API/moneyMovementAPI'
+
 function App() {
 	const { number } = useSelector((state) => state.counter)
 	const { pokemons } = useSelector((state) => state.pokemon)
@@ -29,7 +30,11 @@ function App() {
 		error,
 	} = useGetPostsQuery()
 
+	const { data: clients = [] } = useGetClientsQuery()
+
 	const { data: post } = useGetPostQuery(10)
+
+	console.log(clients)
 
 	function renderNumber() {
 		return (
