@@ -9,8 +9,8 @@ import {
 } from './store/slices/counterSlice.js'
 
 import { getPokemons } from './store/slices/pokemon/thunks.js'
-import { useGetPostsQuery, useGetPostQuery } from './API/todosAPI'
-import { useGetClientsQuery, useGetClientQuery } from './API/moneyMovementAPI'
+
+import Posts from './components/atoms/pages/Posts.jsx'
 
 function App() {
 	const { number } = useSelector((state) => state.counter)
@@ -21,20 +21,6 @@ function App() {
 		//dispatch(getPokemons())
 	}, [])
 */
-
-	const {
-		data: posts = [],
-		isLoading,
-		isSuccess,
-		isError,
-		error,
-	} = useGetPostsQuery()
-
-	const { data: clients = [] } = useGetClientsQuery()
-
-	const { data: post } = useGetPostQuery(10)
-
-	console.log(clients)
 
 	function renderNumber() {
 		return (
@@ -73,18 +59,12 @@ function App() {
 		))
 	}
 
-	function renderPosts() {
-		if (isLoading === false) {
-			return posts?.map((post) => (
-				<div key={post.id}>
-					<MultiActionAreaCard {...post} />
-				</div>
-			))
-		}
+	function render() {
+		return <Posts />
 	}
 
 	function renderPost() {}
-	return renderPosts()
+	return render()
 }
 
 export default App
