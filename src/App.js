@@ -11,6 +11,7 @@ import {
 import { getPokemons } from './store/slices/pokemon/thunks.js'
 
 import Posts from './components/atoms/pages/Posts.jsx'
+import Clients from './components/atoms/pages/Clients.jsx'
 
 function App() {
 	const { number } = useSelector((state) => state.counter)
@@ -60,7 +61,8 @@ function App() {
 	}
 
 	function render() {
-		return <Posts />
+		//return <Posts />
+		return <Clients />
 	}
 
 	function renderPost() {}
