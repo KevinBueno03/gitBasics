@@ -1,10 +1,11 @@
 import * as React from 'react';
 
 import { useGetClients } from '../../../hooks/useMoneymovement';
+import ClientCard from '../Ecosistems/cards/ClientCard';
 
 
 const Clients = () => {
-
+    let key = 0;
     const {
         clients,
         isLoading,
@@ -14,10 +15,9 @@ const Clients = () => {
     function render() {
         return (
             <>{
+                
                 clients?.map((client) => (
-                    <div >
-                        <h1>{client.primer_nombre}</h1>
-                </div>
+                    <ClientCard {...client} />
                 ))
             }
             </>
